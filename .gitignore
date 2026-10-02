@@ -15,6 +15,10 @@ preset-db/build/
 preset-db/docs/pages/
 preset-db/docs/guide_text.md
 
+# Per-batch raw page reads and vision extractions. Provenance evidence, not
+# an input: nothing reads them, and KNOWLEDGE.md is the resolved version.
+preset-db/docs/notes/
+
 # The user's Spooky2 corpus: 43,397 read-only .txt files, ~300 MB.
 # It is not ours to distribute, and it is regenerable from their own install.
 Preset Collections/

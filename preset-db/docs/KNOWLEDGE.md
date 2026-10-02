@@ -97,9 +97,92 @@ frequencies.
 ## 3. Shell presets
 
 > **A shell is an empty preset containing settings only, no programs** (p36,
-> echoed p27). A shell is a *delivery recipe*, not a treatment. A factory preset
-> = shell + pre-loaded programs. (p36 gloss "shell (empty preset)" — the corpus
-> folder is named `Shell (Empty) Presets` because of this.)
+> echoed p27, and stated flatly on p98: *"A shell preset only has settings but
+> no programs and frequencies"*). A shell is a *delivery recipe*, not a
+> treatment. A factory preset = shell + pre-loaded programs. (p36 gloss
+> "shell (empty preset)" — the corpus folder is named `Shell (Empty) Presets`
+> because of this.)
+
+### 3.0 The object model, in the guide's own metaphor (p36)
+
+p36 defines the whole model with a gun diagram whose callouts the text layer
+flattens. Read from the rendered page:
+
+| Concept | The guide's term | What it is |
+|---|---|---|
+| Generator | "an individual gun" | the hardware, customizable with magazines and bullets |
+| Preset | "complete gun set-ups" | *"makes all the correct settings in the other tabs for you"* |
+| Shell preset | "set up your gun for a job, but they're empty" | settings only, no magazines |
+| Program | "a magazine loaded with different bullets, or frequencies" | *"pre-targeted at the illness, germ, parasite, or organ/system it's named after"* |
+| Database | magazine "manufacturer" | where programs come from |
+| Chain | "auto-loaders" | *"auto-load any number of different gun set-ups one after the other, each with any number of different magazines"* |
+
+> You can load these into an empty shell set-up suitable for the job. (p36)
+
+**UI labels confirmed from the page images:** `Presets` and `Programs` are two
+separate tabs of the main window. The Programs tab lets you choose which
+database to view, and **the guide recommends viewing all**. Every preset carries
+**Notes**; authors' initials appear at the end of the preset name.
+
+**Consequence for the skill:** a program is a magazine, not a treatment. Naming
+a program at someone who asked what to run is naming a bullet, not a gun.
+
+### 3.0.1 Building a program from a shell — the procedure
+
+1. Pick the shell from the **Presets tab → >Shell (Empty) Presets** folder,
+   matching hardware **and** intent (killing vs healing are different shells).
+2. Read its **Preset Notes** — p98 directs the user here for detail.
+3. Go to the **Programs tab**, choose a database, **the guide recommends viewing
+   all**, and find a program targeted at the complaint.
+4. **Load it into the empty shell set-up.** The guide states this is possible;
+   it does **not** enumerate the click path, and points instead at a companion
+   video. Do not invent menu names. Say the step is undocumented.
+5. To write your own program instead: **File Menu → Create Program**. See 3.2.
+
+### 3.0.2 The Create Program window (p71, read from the image)
+
+Saves into **`custom.csv`**, described as "a custom database", and accepts "an
+unlimited number of your own programs".
+
+| Field | Instruction as printed in the window |
+|---|---|
+| Program Name | "Give your program a descriptive name. This will assist you when you do a program search." |
+| Frequencies | "entered using a comma to separate each program step" |
+| Dwell | "default duration (in seconds)… apply each frequency". Default **180** |
+| Program Description | "Spooky2 will include this in searches." — **fill it in or the program will not be findable** |
+
+The window carries its own permanent syntax reference, which only exists in the
+image:
+
+```
+xxx-yyy   sweep from xxx Hz to yyy Hz      e.g. 2127=180,2128=240,2127-2128=600
+=xxx      dwell in seconds for the preceding frequency
+Wx        waveform; W = Out 1, w = Out 2
+          1 Sine · 2 Square · 3 Sawtooth · 4 Inverted Sawtooth · 5 Triangle
+          6 Damped Sinusoidal · 7 Damped Square · 8 H-Bomb Sinusoidal
+          9 H-Bomb Square · 10 User Defined #1 · 11 User Defined #2
+```
+
+### 3.0.3 Mode strength ordering (p40, stated as prose)
+
+**Plasma** "quickest and most powerful. The very best available today at any
+price" → **Contact** "comes next for speed and power", uses a dynamic carrier →
+**Remote** "has gained on contact mode", convenience winner → **Scalar** delivers
+to the entire body → **Laser** for issues near the surface or the blood at a
+palpable pulse → **Coil** relaxation, circulation, regeneration.
+
+> For serious conditions, we recommend **one plasma or contact session daily,
+> then switch that generator to Remote Mode**. (p40)
+
+**Program rotation rule (p40), a real constraint on any recommender:**
+
+> Either way, **if you get no results after 2–3 days, you should try another
+> database program instead.**
+
+**Sweeps are kill-only (p40):**
+
+> The Spectrum Sweeps are designed for killing. Most healing works through
+> frequency entrainment, **and sweeps don't work for this process**.
 
 The shells that matter, straight from the corpus and p98:
 
@@ -406,6 +489,88 @@ instead of assuming.
 
 Each is "the calculated result when the number of base pairs is 1". These affect
 **MW and DNA programs only, never Main**.
+
+### 9d. The conversion factors as the PROGRAM ships them — authoritative
+
+Read directly from Spooky2's **Settings → System** panel. **These supersede the
+guide's printed values**, which are rounded transcriptions of these very fields.
+
+| Conversion | Factor, from the program |
+|---|---|
+| MW to Hz | `2.25234271948856E+23` |
+| MW Inhibit | `1.4142135623730950488016887242` |
+| DNA to Hz | `1.55518226281848E+17` |
+| RNA to Hz | `1.61853600781306E+17` |
+| mRNA to Hz | `1.50677502217234E+17` |
+| Tissue | `2.83174934737233` |
+
+**Consequences:**
+
+- The guide's `2.2523430883E+23` and the program's `2.25234271948856E+23` agree
+  to seven significant figures and differ at the eighth. **Use the program's.**
+  The earlier note recording an "exact match" between guide and corpus was
+  wrong at that precision; they are not the same number.
+- **MW Inhibit is exactly √2** and **Tissue is exactly 2√2**. Not arbitrary.
+- The corpus preset value `Force_BP_to_Hz_Factor = 4.35589935811E+17` matches
+  **none** of these, and `Force_BP_to_Hz_Factor` is a different name for
+  something the program does not expose under that label. Treat it as a
+  preset-local override of unknown provenance, not as the DNA factor.
+- The guide explains only that the MW conversion *"incorporates several physics
+  constants, one of which is the speed of light in a vacuum"*, and that the
+  fields are editable because some authorities prefer the in-tissue speed.
+
+### 9e. The frequency notation language (p73) — decoded
+
+Most of the corpus stores frequencies as private notations. The guide publishes a
+legend for them on p73, which turns what looked like unparseable noise into
+structured data. **Roughly 2.5 million of the 4.19 million frequency rows are in
+these forms.**
+
+| Notation | Meaning |
+|---|---|
+| `Mx` | x is the **Monoisotopic Molecular Weight** (g/mol), converted to a frequency. `CMx` is the Out 2 constant form. |
+| `Bx` | base pairs within a genome. `CBx` is the Out 2 constant form. |
+| `BCx` | base pairs within a **circular** genome. |
+| `BLx` | base pairs within a **linear** genome. |
+| `[C860H1353N227O255S9]` | a chemical formula converts to a monoisotopic mass frequency. |
+| `T+` / `T-` | force the Tissue Factor on / off for that frequency. |
+| `Lx` | light wavelength in nm. `ax` amplitude Out 2, `Ox` offset, `Px` phase, `Fx` factor, `Cx` constant. |
+
+Real corpus tokens, decoded:
+
+```
+~6961M5610488342.66301=180   →  MW 5,610,488,342.66   (a large peptide)
+M197336.4311278=180          →  MW 197,336.43
+`0843BC 0710543              →  BC = circular genome, 710,543 base pairs
+`2471BL 4934                 →  BL = linear genome, 4,934 base pairs
+```
+
+**Current coverage: only 18.4% of frequency rows have a computable Hz.** The
+`plain` notation resolves at 47%; the `tilde` and `backtick` notations resolve at
+0% because the arithmetic is missing.
+
+**The application formula is still undetermined and must not be guessed.** Naive
+application of the MW factor gives absurd results —
+`197,336.43 × 2.25234271948856E+23 = 4.44e+28 Hz` — so the factor is expressed in
+a sub-unit with an undisclosed scaling step. Guessing it would produce
+confidently wrong frequencies, which is the worst failure mode this tool has.
+
+**How to close it:** create a program in Spooky2 containing `M100000=180`, load
+it, and read the frequency the program displays. One clean input pins the
+arithmetic. Do the same with a round base-pair count to confirm the DNA factor.
+**Until that is done, say the frequency is unresolved. Do not compute it.**
+
+### 9f. What the recommender can and cannot say about frequencies
+
+- Filtering by a literal frequency is **exact and trustworthy** for `plain`
+  notation, and is *more* precise than a text search: a search for `1840` in raw
+  text returns 305 hits, but only **23** of those are actually 1840 Hz; the rest
+  are digits inside DNA base-pair counts such as `` `8916BC 8368850` ``.
+- A correct answer must therefore say both things: *"23 presets use 1840 Hz
+  literally"* **and** *"I can see 2,547,746 frequency references whose resolved
+  value I cannot compute, so I cannot rule out 1840 Hz arriving through one of
+  those."* Answering with only the first half is a confident half-truth.
+
 
 **CONFLICT:** the corpus ships one BP factor, `4.35589935811E+17`, which matches
 none of the three DNA/RNA/mRNA constants in the guide. Either the software
