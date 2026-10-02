@@ -146,6 +146,11 @@ preset-db/docs/KNOWLEDGE.md      our notes on the User's Guide, cited by page
 The index itself, the preset corpus and the User's Guide are **not** here. This
 is the engine, and you run it on your own copy.
 
+**Your `Preset Collections` folder is read-only and always will be.** Nothing in
+this repository writes to it, moves it, renames it or reformats it. Every tool
+here writes only under `preset-db/`. If you fork this and add an indexer, keep it
+that way.
+
 ## Safety rules the skill enforces
 
 Contact delivery runs at 14–20 V against 4–10 V for Remote, and is the
