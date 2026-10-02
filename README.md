@@ -83,10 +83,6 @@ a private notation — molecular weights, base-pair counts — and the conversio
 arithmetic is not documented anywhere we can find. Those frequencies are
 reported as unresolved, never guessed.
 
-**"I have a Shell (Empty) Preset and want to build my own program. Where do I start?"**
-Explains the difference between a preset, a program and a shell, and walks you
-through loading programs one at a time.
-
 The AI brings the medical and biological reasoning. This index brings the facts
 it would otherwise have to guess at.
 
