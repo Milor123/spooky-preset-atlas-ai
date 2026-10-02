@@ -140,6 +140,13 @@ hf download Milor123/spooky-preset-atlas-db preset-db/build/spooky.db \
 
 **[huggingface.co/datasets/Milor123/spooky-preset-atlas-db](https://huggingface.co/datasets/Milor123/spooky-preset-atlas-db)** — 1.09 GB, one file.
 
+**Or just click it.** No account, no `pip`, no command line:
+
+**[⬇ Download spooky.db directly](https://huggingface.co/datasets/Milor123/spooky-preset-atlas-db/resolve/main/preset-db/build/spooky.db?download=true)**
+
+Then put the file at `preset-db/build/spooky.db` inside the cloned repository and
+the tools find it with no further configuration.
+
 It is the full index: 48,463 presets, 174,624 programs, 4,192,779 frequency
 lines, FTS5 search included. Drop it at `preset-db/build/spooky.db` and the tools
 find it with no further configuration.

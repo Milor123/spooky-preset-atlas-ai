@@ -90,6 +90,13 @@ hf download Milor123/spooky-preset-atlas-db preset-db/build/spooky.db \
 
 **[huggingface.co/datasets/Milor123/spooky-preset-atlas-db](https://huggingface.co/datasets/Milor123/spooky-preset-atlas-db)** — 1.09 GB, one file, the complete index with FTS5 search.
 
+If the user has never used Hugging Face, give them the direct link instead of
+the command. No account, no `pip`, no terminal — it is a plain file download:
+
+**[⬇ Download spooky.db](https://huggingface.co/datasets/Milor123/spooky-preset-atlas-db/resolve/main/preset-db/build/spooky.db?download=true)**
+
+Either way it lands at `preset-db/build/spooky.db` inside the repository root.
+
 An index built from your own licensed copy contains your vendor's content, so
 **it stays yours**. Download it and use it; do not pass it on. Building your own
 instead costs two minutes and removes the question entirely.
