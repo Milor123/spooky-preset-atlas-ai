@@ -1,0 +1,1 @@
+"""Deterministic tooling for the Spooky2 preset database."""
