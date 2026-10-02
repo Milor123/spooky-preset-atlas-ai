@@ -19,14 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-SCOPE OF THIS LICENSE
-
-This license covers the source code in this repository only: the schema, the
-parser, the build and query tooling, the audit harness, and the AI skill.
-
-It does NOT cover the content of the compiled database, nor any vendor
-documentation. See NOTICE.md for the full explanation and for what you must do
-if you want to build the database.
