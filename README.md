@@ -124,6 +124,9 @@ It is the full index: 48,463 presets, 174,624 programs, 4,192,779 frequency
 lines, FTS5 search included. Drop it at `preset-db/build/spooky.db` and the tools
 find it with no further configuration.
 
+To publish an index you built yourself, `preset-db/tools/publish_db.py` does it
+in one call.
+
 **Note on this one.** The index contains the vendor's and the preset authors'
 content — preset names, their descriptions, their frequency lines — restructured.
 That content is **not** covered by the MIT license, and it stays yours to use
