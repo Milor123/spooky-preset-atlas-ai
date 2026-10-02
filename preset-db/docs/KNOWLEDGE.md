@@ -343,7 +343,7 @@ Out 2, or Spooky Boost.**
 | 13 | Never hand-edit Spooky Central/Plasma presets except `Schedule` and `Audio Options` | p29 |
 | 14 | Old XM comm boards burn out if left off the power adapter | p238 |
 | 15 | Drink pure water. **p7 says 6–8 pints/day, p240 says 4–8.** Conservative reading: use the higher figure. Reason given: flushes toxins and dead organisms, and improves electrical conductivity (which matters in Contact) | p7, p240 |
-| 16 | **NEVER-TRANSMIT LIST (p140): "You should add the 1840 and 1910 — these are believed to cause malignancy growth."** The blacklist is global to all generators. **Verified present in the corpus: 1840 Hz occurs 83 times across 22 distinct presets. 1910 Hz does not occur at all (0 rows).** This is checkable against the database and must be checked before recommending anything | p140 |
+| 16 | **NEVER-TRANSMIT LIST (p140): "You should add the 1840 and 1910 — these are believed to cause malignancy growth."** The blacklist is global to all generators. Checkable **only for frequencies a program states literally in Hz**, which is a minority of the corpus; §9d-bis explains why the remainder cannot be screened here. A preset that screens clean is not therefore known to be free of 1840 — say so rather than reporting it as clean | p140 |
 | 17 | **In Contact Mode you must use a dynamic carrier** (square, worked Factor 512); not necessary in Remote | p149 |
 
 ---
@@ -555,10 +555,14 @@ application of the MW factor gives absurd results —
 a sub-unit with an undisclosed scaling step. Guessing it would produce
 confidently wrong frequencies, which is the worst failure mode this tool has.
 
-**How to close it:** create a program in Spooky2 containing `M100000=180`, load
-it, and read the frequency the program displays. One clean input pins the
-arithmetic. Do the same with a round base-pair count to confirm the DNA factor.
-**Until that is done, say the frequency is unresolved. Do not compute it.**
+**This is closed as unresolvable, not as pending.** Measurement settled it, and the
+answer was no. See §9d-bis: the resolved value is an exact integer multiple of the
+same value on the other generator — 9 and 8 — so it is not a property of the preset
+at all. There is no single frequency to store.
+
+**Therefore: never compute these, and never present a converted value.** Report the
+token exactly as the preset writes it, and route the user to read their own
+generator output in emulator mode.
 
 ### 9f. What the recommender can and cannot say about frequencies
 
@@ -586,6 +590,45 @@ best available candidate for what `MW Remove` shells do — still INFERENCE.
 - **XM hard limit: 5 MHz.** Up to **25 MHz** via Wave Cycle Multiplication
   (WCM = number of sub-waves per cycle, worked value 5). Above 25 MHz power
   attenuates and waveforms deform (p148, p149).
+### 9d-bis. MEASURED: the resolved MW frequency depends on the generator
+
+Run by the project owner, emulator mode, generator never energised. Identical
+input `M100000`, identical WCM, two machines:
+
+| | GeneratorX 120 | XM | ratio |
+|---|---|---|---|
+| Out 1 | 36,955,903.3803886 Hz | 4,106,211.49 Hz | **exactly 9** |
+| Out 2 | 20,550,768.8824696 Hz | 2,568,846.11 Hz | **exactly 8** |
+
+Amplitude differs too: 13.33 V on the GeneratorX, 12 V on the XM. Dwell showed 3
+steps of 180 s against 1, so the two presets did not transmit identical
+sequences — the ratios still holding at exact integers despite that is what makes
+device dependence the credible explanation.
+
+Changing WCM from 1 to 2 on the XM doubled Out 2 exactly
+(2,568,846.11 → 5,137,692.22), left Out 1 unchanged to the last digit shown, and
+halved the amplitude 12 V → 6 V.
+
+The same 8-and-9 relationship appears in Prof JD's *Molecular Weight Calculator
+1.2.0 Build 15* between its GeneratorX and XM columns. Both tools implement the
+same hardware-scaling convention. That calculator also uses a nonstandard unit
+system, showing Avogadro as 6.02214076e20 rather than e23 and light speed as
+299,792.458 labelled m/s when the figure is km/s — both exactly 1000x off in the
+same direction, which is a consistent convention and not a bug.
+
+**Consequence, and it is why §9e is closed:** the resolved frequency is a property
+of preset + generator + WCM + state. A column in a 48,463-row index could only
+ever hold one machine's answer and would be false for every other machine. An
+absent column is honest. A wrong one is not.
+
+### 9d-ter. Why this still matters when choosing a preset
+
+Not because the AI can compute it — it cannot, and must not try — but because the
+frequency a user actually runs is set by their hardware, not by the preset file.
+Two people running the same preset on different machines get different
+frequencies. That belongs in the answer to "can I use this preset?", and it is
+knowable with no arithmetic at all.
+
 - **Transposition is killing-only, stated twice (p107, p149).** `Frequency
   Multiplier` defaults to 1, worked value 1024; the goal is to lift the
   program's *lowest* frequency into MHz.

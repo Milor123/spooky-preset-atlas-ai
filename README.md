@@ -61,8 +61,8 @@ Applies the Contact rules — 14–20 V against 4–10 V for Remote, 7 minutes o
 21 minutes off — and shows you which ones violate them.
 
 **"What is the difference between these two presets?"**
-Full notes, frequency list, delivery mode, the shell it inherits from, and where
-in the menus each one lives.
+Full notes, the frequency lines exactly as the file writes them, delivery mode,
+the shell it inherits from, and where in the menus each one lives.
 
 **"I think I have something in a specific place. Where do I start?"**
 Body sites are indexed too, and small counts are a good sign rather than a bad
@@ -106,10 +106,13 @@ ship and which resolves only about 2% of the programs presets actually use. If
 you want to assemble programs yourself, this is the wrong tool and we would
 rather say so than improvise.
 
-It also cannot compute most frequencies. The corpus stores about 81% of them in
-a private notation — molecular weights, base-pair counts — and the conversion
-arithmetic is not documented anywhere we can find. Those frequencies are
-reported as unresolved, never guessed.
+It also cannot resolve most frequencies, and it will not pretend otherwise.
+About 82% of the corpus states them as molecular weights or base-pair counts
+rather than as Hz. Spooky2 converts those on your machine when the program
+loads, and what it produces depends on which generator you have attached, so
+there is no table that could stand in for it. Those frequencies are reported
+exactly as the preset writes them, and the safety screen tells you which ones
+it could actually evaluate.
 
 The AI brings the medical and biological reasoning. This index brings the facts
 it would otherwise have to guess at.
@@ -223,8 +226,10 @@ that way.
 
 Contact delivery runs at 14–20 V against 4–10 V for Remote, and is the
 highest-power mode available. Contact zapping is capped at 7 minutes with 21
-minutes of rest. Plasma carries a 50% duty-cycle hardware cap. **1840 Hz** (83
-occurrences across 22 presets) and **1910 Hz** are treated as blacklisted.
+minutes of rest. Plasma carries a 50% duty-cycle hardware cap. **1840 Hz** and **1910 Hz** are
+blacklisted when a program states them literally in Hz — which is a minority of
+the corpus, so most presets cannot be screened against this and are not reported
+as clean.
 
 Full set with page citations in `preset-db/docs/KNOWLEDGE.md`.
 

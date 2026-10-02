@@ -231,15 +231,26 @@ Check these *before* presenting anything. They are queryable in
 | Contact/Plasma/Scalar amplitude outside the required band | Contact needs **14–20 V**; Remote *"most people use 4-10"*; Plasma/Scalar **require** 5 V @ 100 % offset, 10 V positive-offset-only, or 20 V negative-offset-only | p110 |
 | Polarity stated as offset but stored as `+`/`−` radio | The `+`/`−` buttons *"can be used in lieu of a 100% offset waveform."* Accept both encodings before concluding a preset violates the amplitude table | p114 |
 
-**The 1840/1910 blacklist is checkable, so check it.** Verified in this corpus:
-**1840 Hz occurs 83 times across 22 distinct presets**; 1910 Hz does not occur at
-all. Before recommending any preset, confirm its frequencies:
+**The 1840/1910 blacklist is checkable, so check it.** Before recommending any preset, check the frequencies it states literally:
 
 ```bash
 python query.py get <preset_id> --freqs | grep -E '"hz_lo": (1840|1910)'
 ```
 
 If it contains 1840, say so and do not present it as a clean option.
+
+**That check is incomplete, and saying so is part of the answer.** About 82% of
+the corpus states frequencies as molecular weights or base-pair counts, which this
+tool cannot resolve. A preset with no literal 1840 has *not* been shown to be free
+of it. Spooky2 resolves those values on the user's own hardware when the program
+loads, and the value it produces depends on which generator is attached, so no
+stored table can stand in for reading it.
+
+When most of a preset's frequencies are unresolved, say this: *"Most of this
+preset's frequencies are molecular weights. Spooky2 converts them on your machine
+when the program loads, and the result depends on which generator you have. Load
+it in emulator mode and read the generator output before running it."* Do not
+describe such a preset as screened and clean.
 
 **And remember: a preset's frequency list may not be the whole transmission.**
 61 presets in this corpus have an active frequency limit (`Out1_Min_Freq > 0`).
