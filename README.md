@@ -1,90 +1,162 @@
 # Spooky Preset Atlas
 
-**An AI skill and local index of 48,463 frequency presets.** Remote, Contact,
-Plasma, Scalar, Coil and Cold Laser, across bacteria, viruses, parasites, fungi
-and detox protocols. A Pi skill uses it to choose what to run, instead of anyone
-reading 43,397 files by hand.
+**You have 48,463 Spooky2 presets. This lets you ask an AI which one to run — in plain language, without reading a single file.**
+
+Remote, Contact, Plasma, Scalar, Coil and Cold Laser. Bacteria, viruses,
+parasites, fungi, detox protocols, cancer collections, biofeedback, frequency
+sweeps. The AI searches them, applies the safety rules, and tells you what to do.
 
 > **Not affiliated with, endorsed by, or sponsored by The Spooky Team or any
-> other preset vendor.** "Spooky" is used here as an ordinary English adjective,
-> not as a product mark. This repository contains only the indexing engine and
-> an AI skill. It redistributes no presets, no notes and no vendor
-> documentation; each user builds their own index from their own licensed copy.
-> See *What is deliberately absent* below.
+> other preset vendor.** "Spooky" here is an ordinary English adjective, not a
+> product mark. This repository ships no presets, no notes and no vendor
+> documentation. You build the index from your own licensed copy of Spooky2.
 
-Presets are not medical claims. This tool helps you choose among programs that
-already exist; it does not diagnose, and it does not present the claims of
-preset authors as fact.
+---
 
-## What is in here
+## The short version: hand the link to your AI
+
+Open this URL and give it to whichever AI you use:
 
 ```
-preset-db/schema/schema.sql      the database schema
-preset-db/tools/                 build, query, audit, rebuild
-preset-db/docs/KNOWLEDGE.md      consolidated User's Guide knowledge, with page citations
-preset-db/docs/notes/            raw visual-read notes of the guide pages
-skills/spooky2-presets/SKILL.md  the Pi skill (see its README for install)
+https://github.com/Milor123/spooky-preset-atlas-ai
 ```
 
-The database itself, the corpus, and the User's Guide are **not** in this
-repository. See *What is deliberately absent* below.
+Then say something like:
 
-## Quick start
+> *Install the skill from this repository and get it working. I have Spooky2
+> installed at (your path). I don't want to run any commands myself — tell me
+> what to do if you need me to do something.*
+
+The AI will clone the repository, install the skill where your agent expects it,
+build the index from your own copy of Spooky2, verify it, and then start
+answering questions. It knows the format and the paths.
+
+**You do not need to know how to code, run a terminal, or read a config file.**
+The only thing you need is a licensed copy of Spooky2 already on your machine.
+
+---
+
+## What you can ask
+
+Once it's set up, this is what the conversation looks like. These are real
+questions the index answers:
+
+**"I think I have a parasite infection. What should I run?"**
+Searches 4,192,779 frequency lines across every preset that mentions parasites,
+and returns the candidates with the safety screen already applied.
+
+**"I want to do a detox. Sequence me a protocol."**
+Pulls the kill / heal / detox chains in order, respecting the vendor's timing
+rules about what must not run on the same day.
+
+**"I have an XM and no GeneratorX Pro. What can I actually use?"**
+Filters to the delivery modes your hardware supports, and tells you what to skip.
+
+**"Which presets use Contact mode, and which ones are unsafe for a 20-minute session?"**
+Applies the Contact rules — 14–20 V against 4–10 V for Remote, 7 minutes on and
+21 minutes off — and shows you which presets violate them.
+
+**"Find me presets that don't use 1840 Hz."**
+That frequency appears 83 times across 22 presets. The AI knows it's on a
+blacklist and will not quietly recommend one that uses it.
+
+**"What's the difference between this preset and that one?"**
+Full notes, frequency list, delivery mode, and the base preset it inherits from.
+
+**"I have a Shell (Empty) Preset and want to build my own program. Where do I start?"**
+Explains the difference between a preset, a program and a shell, and walks you
+through loading programs one at a time.
+
+The AI brings the medical and biological reasoning. This index brings the facts
+it would otherwise have to guess at.
+
+---
+
+## What you need
+
+| | |
+| --- | --- |
+| **A licensed copy of Spooky2** | Required. The index is built from your own `Preset Collections` folder. |
+| **Python 3.9 or newer** | Already installed? Nothing to do. No `pip install`, no packages. |
+| **~3 GB of free RAM, for 2–4 minutes** | Only to build the index. After that, queries use 3–23 MB and take under a second. |
+| **An AI agent that supports skills** | Claude Code, Codex, Cursor, Copilot, Gemini CLI, Goose, OpenCode, Pi, and others. See [the skill README](skills/spooky2-presets/README.md) for the full list and paths. |
+
+Nothing is uploaded anywhere. The index is built on your machine and stays there.
+
+---
+
+## If you'd rather do it yourself
 
 ```bash
-python preset-db/tools/build_db.py --full    # ~2-4 min, ~3 GB RAM
-python preset-db/tools/audit.py              # independent verification
-python preset-db/tools/query.py dbinfo
-```
+git clone https://github.com/Milor123/spooky-preset-atlas-ai.git
+cd spooky-preset-atlas-ai
 
-Point it at your own corpus if it is not in the default place:
-
-```bash
+# point this at your own copy if it is not in the default place
 python preset-db/tools/build_db.py --full --presets "S:\Spooky2\Preset Collections"
+python preset-db/tools/audit.py
 ```
 
-## Querying
+Then install the skill into your agent, and ask it questions:
 
 ```bash
 python preset-db/tools/query.py find "parasite" --limit 5
 python preset-db/tools/query.py screen "cancer" --shell Contact --limit 5
-python preset-db/tools/query.py get 12345 --notes --freqs
 ```
 
 `screen` applies the mechanical safety rules in a single call, which is what the
 skill uses before it recommends anything.
 
-## Requirements
+---
 
-- Python 3.9+ (standard library only, no third-party packages)
-- ~2-4 GB of free RAM **to build**; querying needs 3–23 MB and under a second
+## A prebuilt index, if you'd rather not build one
 
-## What is deliberately absent
+A ready-made database is published on Hugging Face so you can download it instead
+of spending two minutes building. The link is in
+[the skill README](skills/spooky2-presets/README.md).
 
-This repository contains the **engine**, not the data.
+Note that an index built from your own licensed copy contains your vendor's
+content, so **it stays yours**. Download it, use it, don't pass it on.
 
-- **The database** is a build artifact. It is regenerable in minutes, so it is
-  gitignored rather than committed.
-- **`Preset Collections/`** is the user's own copy of The Spooky Team's corpus.
-  It is not ours to redistribute, and it is rebuilt from their own install.
-- **The User's Guide PDF** is copyrighted. `KNOWLEDGE.md` is our own summary of
-  it, cited by page.
-- **`Prueba-secreta/`** was reverse-engineering work on Spooky2's encrypted
-  database and is out of scope.
-- **`DatabaseText.txt`** is Spooky2's own export of its program catalog. It is
-  not ingested: it resolves only about 2% of the programs that presets actually
-  reference, because almost all of those are custom programs written by preset
-  authors rather than factory entries.
+---
 
-Anyone with a licensed copy of Spooky2 can build the same database from it.
+## What this is not
 
-## A note on safety
+- **It does not diagnose anything.** It helps you choose among programs that
+  already exist. That is a different thing from telling you what you have.
+- **It does not vouch for the presets.** The authors of these programs make
+  claims this project neither repeats nor endorses. The vendor's own legal
+  notice says no medical claims are made for, nor implied by, Team Spooky.
+- **It will not soften a safety rule.** If a preset violates a cap, the answer is
+  a different preset, not a shorter session.
 
-The safety caps enforced by `screen` come from the vendor's own user guide and
-are not negotiable; the skill is instructed never to soften them. If a preset
-violates a cap, the answer is a different preset, not a shorter session.
+**Consult your doctor before using Spooky2, and do not use it to treat a
+condition instead of being seen.**
 
-Contact delivery on this hardware runs at 14–20 V against 4–10 V for Remote, and
-is the highest-power mode available. Two frequencies are treated as a blacklist
-in the skill: **1840 Hz** (83 occurrences across 22 presets) and **1910 Hz**.
-See `preset-db/docs/KNOWLEDGE.md` for the full set with page citations.
+---
+
+## What's in the repository
+
+```
+skills/spooky2-presets/SKILL.md  the skill — see its README to install
+preset-db/schema/                 database schema
+preset-db/tools/                  build, query, audit, rebuild
+preset-db/docs/KNOWLEDGE.md      our notes on the User's Guide, cited by page
+```
+
+The index itself, the preset corpus and the User's Guide are **not** here. This
+is the engine, and you run it on your own copy.
+
+## Safety rules the skill enforces
+
+Contact delivery runs at 14–20 V against 4–10 V for Remote, and is the
+highest-power mode available. Contact zapping is capped at 7 minutes with 21
+minutes of rest. Plasma carries a 50% duty-cycle hardware cap. **1840 Hz** (83
+occurrences across 22 presets) and **1910 Hz** are treated as blacklisted.
+
+Full set with page citations in `preset-db/docs/KNOWLEDGE.md`.
+
+## License
+
+MIT for the code — see [LICENSE](LICENSE). The compiled data and vendor
+documentation are **not** covered; see [NOTICE.md](NOTICE.md) for exactly what is
+ours, what is theirs, and what we did.
