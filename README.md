@@ -12,6 +12,9 @@ sweeps. The AI searches them, applies the safety rules, and tells you what to do
 > documentation. You build the index from your own licensed copy of Spooky2.
 
 ---
+<div align="center">
+<img width="500" height="500" alt="Ghosty-ty" src="https://github.com/user-attachments/assets/1fe7e77a-4693-4287-b244-4e719a19b8bf" />
+</div>
 
 ## The short version: hand the link to your AI
 
