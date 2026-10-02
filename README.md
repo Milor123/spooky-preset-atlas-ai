@@ -110,12 +110,26 @@ skill uses before it recommends anything.
 
 ## A prebuilt index, if you'd rather not build one
 
-A ready-made database is published on Hugging Face so you can download it instead
-of spending two minutes building. The link is in
-[the skill README](skills/spooky2-presets/README.md).
+Download it instead of spending two minutes building:
 
-Note that an index built from your own licensed copy contains your vendor's
-content, so **it stays yours**. Download it, use it, don't pass it on.
+```bash
+pip install huggingface_hub
+hf download Milor123/spooky-preset-atlas-db preset-db/build/spooky.db \
+  --repo-type dataset --local-dir .
+```
+
+**[huggingface.co/datasets/Milor123/spooky-preset-atlas-db](https://huggingface.co/datasets/Milor123/spooky-preset-atlas-db)** — 1.09 GB, one file.
+
+It is the full index: 48,463 presets, 174,624 programs, 4,192,779 frequency
+lines, FTS5 search included. Drop it at `preset-db/build/spooky.db` and the tools
+find it with no further configuration.
+
+**Note on this one.** The index contains the vendor's and the preset authors'
+content — preset names, their descriptions, their frequency lines — restructured.
+That content is **not** covered by the MIT license, and it stays yours to use
+locally. Do not pass the database on. If you would rather not take that on, build
+your own from your own licensed copy; it takes two minutes and the result is
+unambiguously yours.
 
 ---
 

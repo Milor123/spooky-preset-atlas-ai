@@ -80,8 +80,19 @@ minutes and roughly 3 GB of free RAM, once. Only the standard library is
 required — no `pip install`.
 
 **A prebuilt database is published on Hugging Face** for anyone who would rather
-download than build. See the main `README.md` for the link. Note that a database
-built from your own licensed copy stays yours and should not be redistributed.
+download than build:
+
+```bash
+pip install huggingface_hub
+hf download Milor123/spooky-preset-atlas-db preset-db/build/spooky.db \
+  --repo-type dataset --local-dir .
+```
+
+**[huggingface.co/datasets/Milor123/spooky-preset-atlas-db](https://huggingface.co/datasets/Milor123/spooky-preset-atlas-db)** — 1.09 GB, one file, the complete index with FTS5 search.
+
+An index built from your own licensed copy contains your vendor's content, so
+**it stays yours**. Download it and use it; do not pass it on. Building your own
+instead costs two minutes and removes the question entirely.
 
 ## Agents that cannot run scripts
 
