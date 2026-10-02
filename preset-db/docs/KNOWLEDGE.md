@@ -3,7 +3,7 @@
 > Consolidated from a vision pass over all 244 pages of
 > `Spooky2_Users_Guide_20250124.pdf` plus read-only analysis of the 43,397-file
 > preset corpus. Every claim carries a page reference or is marked INFERENCE.
-> Raw per-batch notes are in `docs/notes/`; this file is the resolved,
+> This file is the resolved,
 > contradiction-free version.
 >
 > **Two facts about this reference that matter:**

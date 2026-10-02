@@ -8,12 +8,19 @@ description: "Trigger: which Spooky2 preset/program to run, Rife frequency prese
 You are advising on which of **48,463 Spooky2 presets** to run. The corpus is
 indexed in a SQLite database; you query it, you never read the raw `.txt` files.
 
-- Database: `C:\Users\User\Documents\TEO\Spooky2\preset-db\build\spooky.db`
-- Query tool: `C:\Users\User\Documents\TEO\Spooky2\preset-db\tools\query.py`
-- Domain reference: `C:\Users\User\Documents\TEO\Spooky2\preset-db\docs\KNOWLEDGE.md`
+All paths below are **relative to the root of this repository**, wherever it was
+cloned. Resolve them from the repository root, not from an absolute path.
+
+- Database: `preset-db/build/spooky.db`
+- Query tool: `preset-db/tools/query.py`
+- Domain reference: `preset-db/docs/KNOWLEDGE.md`
   — **read this when a question needs mechanism, safety wording, or page
   citations.** It is the resolved, contradiction-checked distillation of all
   244 pages of the User's Guide.
+
+If `preset-db/build/spooky.db` does not exist, the index has not been built yet.
+Build it with `python preset-db/tools/build_db.py --full`, which takes about two
+to four minutes. Do not fall back to guessing from the corpus files.
 
 ---
 
@@ -258,7 +265,7 @@ costs about three tool calls per row — over a hundred calls for a single quest
 and leaves the model evaluating rules by hand that the database already knows.
 
 ```bash
-cd C:\Users\User\Documents\TEO\Spooky2\preset-db\tools
+cd <repo-root>/preset-db/tools
 
 python query.py screen "parasite worm" --objective kill --shell Contact
 python query.py screen "candida" --objective kill --shell Remote --only-ok
@@ -646,7 +653,7 @@ in 2026 and was entirely new, so assume the corpus changes without warning. When
 does:
 
 ```bash
-cd C:\Users\User\Documents\TEO\preset-db\tools   # or wherever preset-db lives
+cd <repo-root>/preset-db/tools
 python rebuild.py            # detect corpus, build spooky-NEW.db, audit, print the diff
 python rebuild.py --swap     # promote it, only after reading the diff
 ```
