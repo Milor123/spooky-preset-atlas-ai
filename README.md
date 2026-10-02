@@ -38,11 +38,11 @@ The only thing you need is a licensed copy of Spooky2 already on your machine.
 
 ## What you can ask
 
-Once it's set up, this is what the conversation looks like. These are real
-questions the index answers:
+Once it's set up, this is what the conversation looks like. These are questions
+the index genuinely answers, and the limits are stated rather than glossed.
 
 **"I think I have a parasite infection. What should I run?"**
-Searches 4,192,779 frequency lines across every preset that mentions parasites,
+Searches every preset that mentions parasites across 4,192,779 frequency lines,
 and returns the candidates with the safety screen already applied.
 
 **"I want to do a detox. Sequence me a protocol."**
@@ -56,12 +56,32 @@ Filters to the delivery modes your hardware supports, and tells you what to skip
 Applies the Contact rules — 14–20 V against 4–10 V for Remote, 7 minutes on and
 21 minutes off — and shows you which presets violate them.
 
-**"Find me presets that don't use 1840 Hz."**
-That frequency appears 83 times across 22 presets. The AI knows it's on a
-blacklist and will not quietly recommend one that uses it.
+**"Which of these should I try if nothing happens in three days?"**
+The vendor's own rule is to switch to a different program rather than push on.
+The AI applies it.
 
 **"What's the difference between this preset and that one?"**
 Full notes, frequency list, delivery mode, and the base preset it inherits from.
+
+**"Find me presets that don't use 1840 Hz."**
+It will find the 23 presets that use it literally — and it will also tell you it
+can see 2,547,746 frequency references whose value it cannot compute, so it
+cannot rule out that frequency arriving through one of those. That answer is
+more useful than a clean number would be.
+
+### Where the help stops
+
+**Choosing between presets that already exist is what this does well.** It does
+not help you build your own programs from scratch. Doing that well would need
+the vendor's factory program catalog, which this project deliberately does not
+ship and which resolves only about 2% of the programs presets actually use. If
+you want to assemble programs yourself, this is the wrong tool and we would
+rather say so than improvise.
+
+It also cannot compute most frequencies. The corpus stores about 81% of them in
+a private notation — molecular weights, base-pair counts — and the conversion
+arithmetic is not documented anywhere we can find. Those frequencies are
+reported as unresolved, never guessed.
 
 **"I have a Shell (Empty) Preset and want to build my own program. Where do I start?"**
 Explains the difference between a preset, a program and a shell, and walks you

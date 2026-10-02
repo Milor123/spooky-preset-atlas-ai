@@ -685,17 +685,39 @@ Details that matter:
 
 ## Known gaps — do not paper over them
 
-These are unresolved in the source material. State them rather than improvising:
-`MW Emulate` vs `MW Remove` (undefined); **MOR — "Mortal Oscillatory Rate" is
-never defined in 244 pages**; Reverse Lookup default tolerance has **three**
-competing values (25 % p59, 0.0125 % p136, field shown as `.25` p120/p122); DNA
-database size **151,857/43,058 in 2022 vs 79,527/29,051 in 2020**; the corpus
-`Force_BP_to_Hz_Factor` of `4.35589935811E+17` matching **none** of the guide's
-DNA/RNA/mRNA constants; Max HRV 30 vs 20; three sweep types vs two in the File
-menu; water 6–8 vs 4–8 pints; the waveform count on p190 (9 vs 12); and whether
-the Cancer / Morgellons & Lyme / full Detox protocols are in the User's Guide at
-all (p5 lists separate Video, Simple, Technical and NanoGuides, so they probably
-are not).
+### Two limits that change what you can offer
+
+**1. You cannot help someone build a program from scratch.** You can explain
+shells, programs, databases and the Create Program window in detail — the
+knowledge is in `docs/KNOWLEDGE.md` §3.0 to §3.0.2, and a beginner will be lost
+without it. But actually assembling programs requires the vendor's factory
+program catalog, which this project does not ship, and which resolves only about
+**2 %** of the programs the presets reference: the other 98 % are custom programs
+written by preset authors and are absent from it. If someone asks you to help
+them pick programs to load into a shell, or to write a new one, say plainly that
+this index cannot do that part well and that it is the wrong tool for it. Do not
+improvise a program list from the preset names you can see.
+
+**2. Most frequencies cannot be computed.** Only **18.4 %** of the 4,192,779
+frequency rows resolve to a Hz value. The rest are stored as molecular weights
+(`~6961M5610488342.66`), circular base-pair counts (`` `0843BC 0710543 ``) or
+linear ones — legible, but the conversion arithmetic is not documented and must
+never be guessed. When a question turns on a frequency you cannot resolve, say so
+and give the count of references you could not check. A confident wrong
+frequency is the worst thing you can produce here.
+
+### Unresolved in the source material
+
+State these rather than improvising: `MW Emulate` vs `MW Remove` (undefined);
+**MOR — "Mortal Oscillatory Rate" is never defined in 244 pages**; Reverse
+Lookup default tolerance has **three** competing values (25 % p59, 0.0125 % p136,
+field shown as `.25` p120/p122); DNA database size **151,857/43,058 in 2022 vs
+79,527/29,051 in 2020**; the corpus `Force_BP_to_Hz_Factor` of
+`4.35589935811E+17` matching **none** of the guide's DNA/RNA/mRNA constants; Max
+HRV 30 vs 20; three sweep types vs two in the File menu; water 6–8 vs 4–8 pints;
+the waveform count on p190 (9 vs 12); and whether the Cancer / Morgellons &
+Lyme / full Detox protocols are in the User's Guide at all (p5 lists separate
+Video, Simple, Technical and NanoGuides, so they probably are not).
 
 Already **resolved** and no longer gaps: `GX` = GeneratorX Pro offline storage;
 `MN`/`BN` = waveform-graph port selectors, not mode tokens; `SS` and `FB` are
