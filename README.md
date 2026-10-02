@@ -38,36 +38,60 @@ The only thing you need is a licensed copy of Spooky2 already on your machine.
 
 ## What you can ask
 
-Once it's set up, this is what the conversation looks like. These are questions
-the index genuinely answers, and the limits are stated rather than glossed.
+These are questions the index genuinely answers. Every one of them is backed by a
+count you can check, and none of them asks for more than the tool can deliver.
 
-**"I think I have a parasite infection. What should I run?"**
-Searches every preset that mentions parasites across 4,192,779 frequency lines,
-and returns the candidates with the safety screen already applied.
+**"I have a bacterium called *Candida albicans*. What runs for it?"**
+669 presets match that name alone. This is the core of what the index is for.
 
-**"I want to do a detox. Sequence me a protocol."**
-Pulls the kill / heal / detox chains in order, respecting the vendor's timing
-rules about what must not run on the same day.
+**"I think I have parasites. What should I run?"**
+1,280 presets mention parasites. The AI narrows them by your hardware, your
+delivery mode and the safety screen, and gives you the exact menu path to load
+each one from.
 
 **"I have an XM and no GeneratorX Pro. What can I actually use?"**
-Filters to the delivery modes your hardware supports, and tells you what to skip.
+Filters to the delivery modes your hardware supports and tells you what to skip.
 
-**"Which presets use Contact mode, and which ones are unsafe for a 20-minute session?"**
+**"Which Contact presets are safe for a 20-minute session?"**
 Applies the Contact rules — 14–20 V against 4–10 V for Remote, 7 minutes on and
-21 minutes off — and shows you which presets violate them.
+21 minutes off — and shows you which ones violate them.
 
-**"Which of these should I try if nothing happens in three days?"**
-The vendor's own rule is to switch to a different program rather than push on.
-The AI applies it.
+**"What is the difference between these two presets?"**
+Full notes, frequency list, delivery mode, the shell it inherits from, and where
+in the menus each one lives.
 
-**"What's the difference between this preset and that one?"**
-Full notes, frequency list, delivery mode, and the base preset it inherits from.
+**"I think I have something in a specific place. Where do I start?"**
+Body sites are indexed too, and small counts are a good sign rather than a bad
+one — 243 presets mention *cervical*, 30 mention *cervix*, 18 mention *vagina*.
+A small, exact set is more useful than a large vague one.
 
-**"Find me presets that don't use 1840 Hz."**
-It will find the 23 presets that use it literally — and it will also tell you it
-can see 2,547,746 frequency references whose value it cannot compute, so it
-cannot rule out that frequency arriving through one of those. That answer is
-more useful than a clean number would be.
+### The workflow worth knowing
+
+Most people arrive without the technical name. That is normal, and it is where
+the assistant earns its keep:
+
+1. **You describe it.** *"Burning when I pee, and an itch."* No Latin, no
+   organism name.
+2. **The assistant looks it up.** It does not guess. It searches for what the
+   symptom pattern points to.
+3. **It brings the name back to the index.** Whatever organism the search turns
+   up, that name goes straight into the preset database, and you get the
+   hundreds of matching presets with the safety screen already applied.
+4. **It tells you where to click.** Every result comes with its full path —
+   *"Presets tab > DNA/Bacteria/Remote/…"* — so you are not hunting for it.
+
+The index does step 3. The assistant does steps 1, 2 and 4. Neither is much use
+without the other.
+
+### Use a large model
+
+This is not a task for a small or fast model. The assistant has to hold a
+concept model of what a preset and a program are, keep safety rules in mind
+while reasoning, call the tools, and know enough biology to tell a plausible
+organism from a made-up one. A mini or flash model will quietly drop a safety
+cap, or invent a frequency that was never in the corpus.
+
+Point it at a strong model and the difference is not subtle.
 
 ### Where the help stops
 
