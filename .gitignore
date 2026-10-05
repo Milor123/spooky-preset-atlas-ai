@@ -38,6 +38,30 @@ DatabaseText.txt
 Prueba-secreta/
 
 # ---------------------------------------------------------------------------
+# teoria-JD — the user's own local research folder. Never distributable.
+# ---------------------------------------------------------------------------
+#
+# Contains material that is not ours and must not be published:
+#   * 33 MB export of a Telegram supergroup's full chat history (43,745
+#     messages, 897 participants), exported by a third party.
+#   * verbatim transcripts of other people's lectures (Nesterov, van Hoven),
+#     automatically transcribed and therefore someone's copyrighted speech.
+#   * preset archives, PDFs and screenshots belonging to their authors and to
+#     other Telegram participants.
+#
+# Nothing derived from it may be committed either. Knowledge extracted from
+# these sources is written up in preset-db/docs/, attributed by source, and
+# kept to what is independently checkable. Private notes stay private.
+teoria-JD/
+
+# The parser that reads that folder is a local tool, like the other scripts
+# under tools/. It has no place in a public repository because its only input
+# is the excluded chat export.
+teoria-jd-parser.py
+jd_*.jsonl
+jd_*.md
+
+# ---------------------------------------------------------------------------
 # Local runtime noise
 # ---------------------------------------------------------------------------
 

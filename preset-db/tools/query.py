@@ -336,11 +336,22 @@ def cmd_screen(con, args) -> int:
             SELECT DISTINCT pr.preset_id AS pid FROM frequency f
               JOIN program pr ON pr.id = f.program_id
              WHERE f.hz_lo IN ({",".join(str(h) for h in BLACKLIST_HZ)})
+        ), cov AS (
+            -- How much of each preset the blacklist rule could actually inspect.
+            -- A frequency the parser cannot turn into Hz is invisible to `black`,
+            -- so a preset can look clean purely because nothing was checkable.
+            SELECT pr.preset_id AS pid,
+                   COUNT(*)                                          AS freq_rows,
+                   SUM(CASE WHEN f.hz_lo IS NULL THEN 1 ELSE 0 END) AS unresolvable
+              FROM frequency f JOIN program pr ON pr.id = f.program_id
+             GROUP BY pr.preset_id
         )
         SELECT p.id, p.filename_full, p.filename_stem, p.preset_name,
                COALESCE(sh.name,'?') AS shell, p.freq_count, p.program_count,
                p.notes_len, p.description,
                (CASE WHEN b.pid IS NOT NULL THEN 1 ELSE 0 END) AS blacklisted,
+               COALESCE(c.freq_rows,0)                         AS freq_rows,
+               COALESCE(c.unresolvable,0)                      AS unresolvable,
                json_extract(p.params_json,'$.Frequency_Multiplier')  AS freq_mult,
                json_extract(p.params_json,'$.Out1_Min_Freq')        AS min_freq,
                json_extract(p.params_json,'$.Out1_Max_Freq')        AS max_freq,
@@ -362,6 +373,7 @@ def cmd_screen(con, args) -> int:
           LEFT JOIN shell sh ON sh.id = p.shell_id
           LEFT JOIN mode m  ON m.id = p.mode_id
           LEFT JOIN black b ON b.pid = p.id
+          LEFT JOIN cov   c ON c.pid = p.id
          WHERE name_fts MATCH ?
     """
     params: list = [fts_query(args.query)]
@@ -439,9 +451,34 @@ def cmd_screen(con, args) -> int:
 
         results.append((verdict, r, reasons, wave, inherited))
 
+    # Coverage is reported last so it never overrides a hard verdict. It only
+    # degrades a clean OK, because REJECT is decided from data we did read and
+    # a FLAG already says "look closer".
+    for i, (verdict, r, reasons, wave, inherited) in enumerate(results):
+        if verdict != "OK":
+            continue
+        checked = (r["freq_rows"] or 0) - (r["unresolvable"] or 0)
+        total = r["freq_rows"] or 0
+        if total == 0:
+            results[i] = ("NO-CHECK", r, reasons + [
+                "no frequency rows: nothing was screened for the blacklist"], wave, inherited)
+        elif checked == 0:
+            results[i] = ("NO-CHECK", r, reasons + [
+                f"0 of {total} frequencies could be resolved to Hz, so the "
+                f"{BLACKLIST_HZ[0]}/{BLACKLIST_HZ[1]} Hz blacklist was NOT checked at all",
+                "this preset is not known to be clean; it is unchecked"],
+                wave, inherited)
+        elif r["unresolvable"]:
+            pct = round(100 * r["unresolvable"] / total)
+            results[i] = ("OK-PARTIAL", r, reasons + [
+                f"blacklist screened on {checked} of {total} frequencies; "
+                f"{r['unresolvable']} ({pct}%) could not be resolved to Hz and were NOT checked"],
+                wave, inherited)
+
     if args.only_ok and not args.all_rows:
         results = [x for x in results if x[0] == "OK"]
-    results.sort(key=lambda x: ({"REJECT": 0, "FLAG": 1, "OK": 2}[x[0]], -x[1]["freq_count"]))
+    order = {"REJECT": 0, "FLAG": 1, "OK": 2, "OK-PARTIAL": 3, "NO-CHECK": 4}
+    results.sort(key=lambda x: (order.get(x[0], 9), -x[1]["freq_count"]))
 
     if args.json:
         print(json.dumps([
