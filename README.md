@@ -246,28 +246,25 @@ ours, what is theirs, and what we did.
 
 ## Acknowledgements
 
-This project would not exist without the **Spooky2 Deutsch** Telegram group, and above all
-without two people who published their measurements and retracted their own claims when shown
-they were wrong.
+Everything in here comes out of the **Spooky2 Deutsch** Telegram group. That is where the
+measurements came from, where the arguments happened, and where most of the people who know
+this apparatus well enough to explain it are actually willing to.
 
-**Johannes D** — mathematics lecturer. Most of the technical content here is his: why the
-generators are ARB with 1,024 samples, the Odd divider, why the Tissue Factor is a refractive
-index, and the molecular-weight-to-frequency calculation. He found and reported a bug in
-Spooky2's own frequency database, and publicly withdrew his own explanation when Jayce showed
-that it did not apply.
+Three people shaped this project in particular:
 
-**Joerg Pohl** — signal engineer. Half the electrical material in this project is his: why the
-Boost is a series sum of the two outputs, how the biofeedback works internally, the voltage
-limits of every device, and which driver belongs to which model. **When he is shown to be
-wrong, he withdraws the entire claim**, without defence and without hedging. That is what makes
-his material usable.
+**Johannes D** explained how the generators really work, why the divider behaves the way it
+does, and how molecular weight maps to a frequency. He also reported an inaccuracy in the
+shipped frequency database.
 
-**Kimmy 29/11** — group administrator and owner. 2,560 messages, and the very first one in the
-group is hers. She answers for what is product rather than technique, which is exactly the part
-that makes the technique usable.
+**Joerg Pohl** explained the electrical side: how the Boost combines the two outputs, what
+the biofeedback is actually measuring, and where each device stops tolerating what you send
+it. He has a habit worth copying — when something turns out to be wrong, he says so and drops
+it.
 
-The export of that group — its 2,744 messages from Joerg and the thousands of turns from
-Johannes D — is the raw material behind `teoria-JD/`. **It is not distributed here.** It belongs
-to third parties, and publishing it is their decision, not ours. Everything this repository
-draws from it is a checkable technical fact — a measured value, a mechanism, a prohibition —
-and it holds with or without the attribution.
+**Kimmy 29/11** runs the group, and answers the endless stream of setup questions that would
+otherwise stop anyone from getting started.
+
+None of them had any part in writing this code, and none of them were asked to. The export
+they produced is the raw material for everything here, and it is not republished: it belongs
+to the people who wrote it. What this repository takes from it are facts about the hardware
+that hold whether or not you read who said them first.
