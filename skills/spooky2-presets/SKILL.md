@@ -24,6 +24,44 @@ to four minutes. Do not fall back to guessing from the corpus files.
 
 ---
 
+## Qué leer, y cuándo
+
+Este archivo es el **router**, no el manual. La razón práctica: el conocimiento de este aparato
+no cabe en una prompt, y lo que no se carga no se puede usar mal.
+
+| Si vas a… | Leé primero | Y es obligatorio |
+|---|---|---|
+| Recomendar **cualquier** preset | `references/comportamiento.md` | sí |
+| Recomendar algo con **Contact, Plasma, Scalar, Coil o Cold Laser** | `references/seguridad.md` **y** `references/electromecanica.md` | **sí, los dos** |
+| Decir **cuánta tensión** entrega una salida | `references/electromecanica.md` | sí |
+| Explicar por qué **el generador muestra otra frecuencia** | `references/comportamiento.md` | sí |
+| Recomendar **escaneo BFB** | `references/comportamiento.md` | sí |
+| **No** decir nada de seguridad eléctrica | no hace falta leer nada | — |
+
+### Las tres reglas que no se saltan nunca
+
+Están también en `references/seguridad.md`, pero van aquí porque son las que un error de lectura
+convierte en daño:
+
+1. **Nunca dos Contact a la vez.** **Prohibido por el fabricante**: varios pads en distintos
+   generadores quedan unidos por el USB-ground y hacen circular corriente por el cuerpo.
+2. **Offset 0 en Contact.** El offset es corriente continua y quema. Y offset 100 % no "suma"
+   amplitud: desplaza el rango entero (20 V + offset 100 % dan 0…10 V).
+3. **1840 y 1910 Hz van a la blacklist.** La guía del fabricante dice *"believed to cause
+   malignancy growth"* — reportalo como creencia suya, nunca como hecho.
+
+### Veredictos de `screen`
+
+`screen` devuelve `OK`, `OK-PARTIAL`, `NO-CHECK`, `FLAG` o `REJECT`.
+
+**`OK-PARTIAL` y `NO-CHECK` no son `OK`.** Significa que una parte —o todo— del preset **no se
+pudo comprobar** contra la blacklist. 81,6 % de las frecuencias del corpus no son resolubles a Hz, y
+27.493 presets (56,7 %) no tienen ni una resoluble.
+
+**Nunca le digas a un usuario que un preset "está limpio" si el veredicto no es `OK` exacto.**
+
+---
+
 ## Rule 0 — the question you must ask before anything else
 
 **What device does the user actually have?**
@@ -227,11 +265,13 @@ Check these *before* presenting anything. They are queryable in
 | Any patient with a **pacemaker** outside Remote | Remote Mode ONLY | p208 |
 | Any **pregnancy** | never | p208 |
 | TENS pads on **neck or head** | never | p208 |
-| **1840 Hz or 1910 Hz appears in the program** | *"You should add the 1840 and 1910 — these are believed to cause **malignancy growth**."* Global blacklist, all generators | p140 |
+| **1840 Hz or 1910 Hz appears in the program** | Spooky2's own guide, p140 §6, tells you to add both to the **global blacklist**: *"You should add the 1840 and 1910 — these are believed to cause malignancy growth."* Applies to all generators | p140 |
 | Contact/Plasma/Scalar amplitude outside the required band | Contact needs **14–20 V**; Remote *"most people use 4-10"*; Plasma/Scalar **require** 5 V @ 100 % offset, 10 V positive-offset-only, or 20 V negative-offset-only | p110 |
 | Polarity stated as offset but stored as `+`/`−` radio | The `+`/`−` buttons *"can be used in lieu of a 100% offset waveform."* Accept both encodings before concluding a preset violates the amplitude table | p114 |
 
-**The 1840/1910 blacklist is checkable, so check it.** Before recommending any preset, check the frequencies it states literally:
+**The 1840/1910 blacklist is checkable, so check it.** Verified in this corpus:
+**1840 Hz occurs 83 times across 22 distinct presets**; 1910 Hz does not occur at
+all. Before recommending any preset, confirm its frequencies:
 
 ```bash
 python query.py get <preset_id> --freqs | grep -E '"hz_lo": (1840|1910)'
@@ -239,18 +279,27 @@ python query.py get <preset_id> --freqs | grep -E '"hz_lo": (1840|1910)'
 
 If it contains 1840, say so and do not present it as a clean option.
 
-**That check is incomplete, and saying so is part of the answer.** About 82% of
-the corpus states frequencies as molecular weights or base-pair counts, which this
-tool cannot resolve. A preset with no literal 1840 has *not* been shown to be free
-of it. Spooky2 resolves those values on the user's own hardware when the program
-loads, and the value it produces depends on which generator is attached, so no
-stored table can stand in for reading it.
+### Say what the guide says, not more than it says
 
-When most of a preset's frequencies are unresolved, say this: *"Most of this
-preset's frequencies are molecular weights. Spooky2 converts them on your machine
-when the program loads, and the result depends on which generator you have. Load
-it in emulator mode and read the generator output before running it."* Do not
-describe such a preset as screened and clean.
+The p140 wording is *"these are **believed to** cause malignancy growth"*. That is the
+manufacturer declaring a **belief**, not an established fact, in its own documentation. Report
+it that way:
+
+- ✅ *"Spooky2's guide says to blacklist 1840 and 1910, describing them as believed to cause
+  malignancy growth."*
+- ❌ *"1840 Hz causes cancer."*
+- ❌ *"Never use 1840 Hz — it grows tumours."*
+
+There is a **footnote marker** on that line in the guide: the manufacturer cites a source the
+public documentation does not include. The claim's actual basis was never checked here, and you
+should not imply it was. Rule the preset out as the guide directs; do not upgrade a manufacturer's
+stated belief into a finding.
+
+### `Avoid Octaves` and `Avoid Decades` are a trap (p140)
+
+The blacklist panel has two tickboxes that skip octave and decade harmonics. The guide itself
+warns: *"this can result in very important frequencies being skipped."* A preset scrolled onto one
+of those may **silently skip frequencies you expect it to deliver**. Do not assume a clean run.
 
 **And remember: a preset's frequency list may not be the whole transmission.**
 61 presets in this corpus have an active frequency limit (`Out1_Min_Freq > 0`).
@@ -581,6 +630,47 @@ A`…** — that is a **numbered protocol to run in order**, each group repeated
 times, not 222 alternatives. When a file holds more than a handful of presets,
 detect the `N. <name>` numbering and say *"this is an N-step sequence, run in order"*
 rather than offering a menu.
+
+---
+
+## Rule 9b — author codes: JW, JD and JK are three different people
+
+**Never merge them.** These suffixes appear on thousands of filenames and they
+identify different people with different authority:
+
+| Code | Who | Role |
+|---|---|---|
+| **`JW`** | **John White** | The Spooky2 author himself. ~23,120 preset filenames, including the `JW_Peptides\` folder. |
+| **`JD`** | **Johannes D** | The group regular on Telegram. ~58 preset filenames; the MW/Fourier/PEMF reasoning. |
+| **`JK`** | **junklont — the user of this skill** | ~19 preset filenames. Their own presets. |
+
+**`JW != JD != JK`.** When a preset is attributed to "JD", that is Johannes D,
+**not** John White, even though John White's initials are also J+W. The
+`JW_Peptides\` directory belongs to **John White**, not to Johannes D.
+
+Why this matters:
+
+- **Authority.** A `- JW` preset carries the manufacturer's own authority. A
+  `- JD` preset is one contributor's opinion inside a Telegram group. Quote them
+  at different weights.
+- **Your own presets.** A `- JK` file is the user's. Do not "discover" it as a
+  recommendation, and do not suggest they run it as if it were someone else's
+  finding.
+- **Wrong attribution is a real error.** Telling the user that a shell is "JD's"
+  when it is John White's misrepresents who said what. When you cite a shell or
+  preset by author, read the suffix off the filename — do not infer it from the
+  folder or from how the name reads.
+
+Other codes seen in the corpus that are **not** resolved identities: `MM`, `BY`,
+`BR`, `DH`, `EL`, `DB`, `JRG`, `AR`, `JP`, `EV`, and others.
+**Do not resolve a code from circumstantial evidence.** Running someone else's preset does not
+make you its author. Attribution requires the person to say so, or a closed chain of evidence.
+If it only closes by inference, mark it as an inference. Known case: `JP` looks like it is
+Joerg Pohl — he redistributed `Daily Wellness (R) - BY` from his own meeting as
+`Daily Wellness (R) - JP.txt` [24097, 22741] — but he never states it, and he runs chains that
+mix six different suffixes. `JP` stays unresolved, like `MM`, `BY`, `BR`, `DH`.
+ Do not expand a code into a name
+unless it is one of the three above, or the user has told you.
 
 ---
 

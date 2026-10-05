@@ -226,8 +226,11 @@ that way.
 
 Contact delivery runs at 14–20 V against 4–10 V for Remote, and is the
 highest-power mode available. Contact zapping is capped at 7 minutes with 21
-minutes of rest. Plasma carries a 50% duty-cycle hardware cap. **1840 Hz** and **1910 Hz** are
-blacklisted when a program states them literally in Hz — which is a minority of
+minutes of rest. Plasma carries a 50% duty-cycle hardware cap. Spooky2's own guide (p140) tells
+you to blacklist **1840 Hz** and **1910 Hz** across all generators, describing them as
+**"believed to cause malignancy growth"** — the manufacturer's own wording is a stated
+belief, not an established finding. The blacklist can only be applied when a program
+states them literally in Hz — which is a minority of
 the corpus, so most presets cannot be screened against this and are not reported
 as clean.
 
@@ -238,3 +241,33 @@ Full set with page citations in `preset-db/docs/KNOWLEDGE.md`.
 MIT for the code — see [LICENSE](LICENSE). The compiled data and vendor
 documentation are **not** covered; see [NOTICE.md](NOTICE.md) for exactly what is
 ours, what is theirs, and what we did.
+
+---
+
+## Agradecimientos
+
+Este proyecto no habría existido sin el grupo de Telegram **Spooky2 Deutsch**, y
+principalmente sin dos personas que publicaron sus mediciones y se retractaron
+cuando se les mostró que estaban equivocados.
+
+**Johannes D** — profesor de matemática. Debe casi todo lo técnico de aquí: la
+explicación de por qué los generadores son ARB con 1.024 muestras, la del divisor *Odd*,
+por qué el Tissue Factor es un índice de refracción, y el cálculo del peso molecular a
+frecuencia. Detectó y corrigió un error de la base de datos de Spooky2, y se retiró
+públicamente su propia explicación cuando Jayce le mostró que no aplicaba.
+
+**Joerg Pohl** — ingeniero de señal. La mitad del material eléctrico de este proyecto es
+suyo: por qué el Boost es una suma en serie de las dos salidas, cómo funciona el
+biofeedback por dentro, los límites de tensión de cada aparato, y los Drivers
+correctos de cada modelo. **Cuando se le refuta algo, retira la afirmación entera**, sin
+defensa y sin matiz. Ese rasgo es lo que hace que su material sirva.
+
+**Kimmy 29/11** — administradora y owner del grupo. 2.560 mensajes, y el primero de
+todos es el que recibió al grupo. Respondió lo que es del producto y no es técnica —
+que es justamente la parte que hace falta para que la técnica sirva.
+
+El export de ese grupo, con sus 2.744 mensajes de Joerg y los miles de turnos de
+Johannes D, es la materia prima de `teoria-JD/`. **No se distribuye aquí:** es
+material de terceros y la decisión de publicarlo es de quienes lo escribieron. Todo lo
+que este repositorio usa de él son hechos técnicos comprobables —cifras, mecanismos,
+prohibiciones— que se sostienen con o sin la atribución.
