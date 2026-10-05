@@ -244,30 +244,30 @@ ours, what is theirs, and what we did.
 
 ---
 
-## Agradecimientos
+## Acknowledgements
 
-Este proyecto no habría existido sin el grupo de Telegram **Spooky2 Deutsch**, y
-principalmente sin dos personas que publicaron sus mediciones y se retractaron
-cuando se les mostró que estaban equivocados.
+This project would not exist without the **Spooky2 Deutsch** Telegram group, and above all
+without two people who published their measurements and retracted their own claims when shown
+they were wrong.
 
-**Johannes D** — profesor de matemática. Debe casi todo lo técnico de aquí: la
-explicación de por qué los generadores son ARB con 1.024 muestras, la del divisor *Odd*,
-por qué el Tissue Factor es un índice de refracción, y el cálculo del peso molecular a
-frecuencia. Detectó y corrigió un error de la base de datos de Spooky2, y se retiró
-públicamente su propia explicación cuando Jayce le mostró que no aplicaba.
+**Johannes D** — mathematics lecturer. Most of the technical content here is his: why the
+generators are ARB with 1,024 samples, the Odd divider, why the Tissue Factor is a refractive
+index, and the molecular-weight-to-frequency calculation. He found and reported a bug in
+Spooky2's own frequency database, and publicly withdrew his own explanation when Jayce showed
+that it did not apply.
 
-**Joerg Pohl** — ingeniero de señal. La mitad del material eléctrico de este proyecto es
-suyo: por qué el Boost es una suma en serie de las dos salidas, cómo funciona el
-biofeedback por dentro, los límites de tensión de cada aparato, y los Drivers
-correctos de cada modelo. **Cuando se le refuta algo, retira la afirmación entera**, sin
-defensa y sin matiz. Ese rasgo es lo que hace que su material sirva.
+**Joerg Pohl** — signal engineer. Half the electrical material in this project is his: why the
+Boost is a series sum of the two outputs, how the biofeedback works internally, the voltage
+limits of every device, and which driver belongs to which model. **When he is shown to be
+wrong, he withdraws the entire claim**, without defence and without hedging. That is what makes
+his material usable.
 
-**Kimmy 29/11** — administradora y owner del grupo. 2.560 mensajes, y el primero de
-todos es el que recibió al grupo. Respondió lo que es del producto y no es técnica —
-que es justamente la parte que hace falta para que la técnica sirva.
+**Kimmy 29/11** — group administrator and owner. 2,560 messages, and the very first one in the
+group is hers. She answers for what is product rather than technique, which is exactly the part
+that makes the technique usable.
 
-El export de ese grupo, con sus 2.744 mensajes de Joerg y los miles de turnos de
-Johannes D, es la materia prima de `teoria-JD/`. **No se distribuye aquí:** es
-material de terceros y la decisión de publicarlo es de quienes lo escribieron. Todo lo
-que este repositorio usa de él son hechos técnicos comprobables —cifras, mecanismos,
-prohibiciones— que se sostienen con o sin la atribución.
+The export of that group — its 2,744 messages from Joerg and the thousands of turns from
+Johannes D — is the raw material behind `teoria-JD/`. **It is not distributed here.** It belongs
+to third parties, and publishing it is their decision, not ours. Everything this repository
+draws from it is a checkable technical fact — a measured value, a mechanism, a prohibition —
+and it holds with or without the attribution.
