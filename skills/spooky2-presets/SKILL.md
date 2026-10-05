@@ -33,10 +33,12 @@ no cabe en una prompt, y lo que no se carga no se puede usar mal.
 |---|---|---|
 | Recomendar **cualquier** preset | `references/comportamiento.md` | sí |
 | Recomendar algo con **Contact, Plasma, Scalar, Coil o Cold Laser** | `references/seguridad.md` **y** `references/electromecanica.md` | **sí, los dos** |
+| Recomendar algo con **Coil / PEMF** | `references/coil.md` | **sí** |
 | Decir **cuánta tensión** entrega una salida | `references/electromecanica.md` | sí |
 | Explicar por qué **el generador muestra otra frecuencia** | `references/comportamiento.md` | sí |
 | Recomendar **escaneo BFB** | `references/comportamiento.md` | sí |
 | **No** decir nada de seguridad eléctrica | no hace falta leer nada | — |
+| Citar **un testimonio, caso o resultado reportado** | `references/testimonios.md` | **sí** |
 
 ### Las tres reglas que no se saltan nunca
 
