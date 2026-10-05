@@ -246,25 +246,17 @@ ours, what is theirs, and what we did.
 
 ## Acknowledgements
 
-Everything in here comes out of the **Spooky2 Deutsch** Telegram group. That is where the
-measurements came from, where the arguments happened, and where most of the people who know
-this apparatus well enough to explain it are actually willing to.
+Everything in here comes out of the **Spooky2 Deutsch** Telegram group — that is where the
+measurements and the explanations come from.
 
-Three people shaped this project in particular:
+**Johannes D** — how the generators work, how the divider behaves, and how molecular weight
+maps to a frequency.
 
-**Johannes D** explained how the generators really work, why the divider behaves the way it
-does, and how molecular weight maps to a frequency. He also reported an inaccuracy in the
-shipped frequency database.
+**Joerg Pohl** — the electrical side: how the Boost combines the outputs, what the biofeedback
+measures, and the voltage limits of each device.
 
-**Joerg Pohl** explained the electrical side: how the Boost combines the two outputs, what
-the biofeedback is actually measuring, and where each device stops tolerating what you send
-it. He has a habit worth copying — when something turns out to be wrong, he says so and drops
-it.
+**Kimmy 29/11** — runs the group and handles the setup questions.
 
-**Kimmy 29/11** runs the group, and answers the endless stream of setup questions that would
-otherwise stop anyone from getting started.
-
-None of them had any part in writing this code, and none of them were asked to. The export
-they produced is the raw material for everything here, and it is not republished: it belongs
-to the people who wrote it. What this repository takes from it are facts about the hardware
-that hold whether or not you read who said them first.
+The export is not republished here: it belongs to the people who wrote it. What this
+repository takes from it are facts about the hardware, which hold regardless of who said them
+first.
