@@ -26,6 +26,7 @@ trabaja con el notebook desenchufado, esa protección no existe.
 ## Las salidas NO están aisladas galvánicamente
 
 > *"Die Ausgänge sind nicht galvanisch getrennt, so können zwischen den Generatoren unerwünschte
+> **Traducción:** "Las salidas no están aisladas galvánicamente, así que entre los generadores pueden circular corrientes no deseadas."
 > Ströme fließen."*
 
 **Ésta es la razón de fondo de por qué no se puede hacer galvano con estos generadores.** Cuatro
@@ -44,7 +45,13 @@ comunes son de 50 Ω sin aislamiento.
 - **MN** → (Out1 − Out2)
 
 **High-Power es alias eléctrico de BN.**
-**Colloidal Silver = BN + 10 kΩ en serie** (lleva resistencia limitadora incorporada).
+**Colloidal Silver** — el Boost (p12) **cuadruplica la potencia de Contact**, duplica la de Remote, y tiene salida dedicada. Puertos: `OUT1, OUT2, PW_R, CONTACT 1, CONTACT 2, SILVER, BN, MN`.
+La guia marca el puerto silver como **weak** (p21).
+
+> **CORRECCIÓN:** una versión anterior de este archivo decía *"Colloidal Silver = BN + 10 kΩ
+> en serie, lleva resistencia limitadora incorporada"*. **Eso es falso.** El resistor de 10 kΩ
+> **no viene en el puerto**: es un componente que se agrega **a mano en el equipo casero** para
+> fabricar la plata coloidal (p207). Ver `coloidal.md`.
 
 Requiere **excitación en contrafase** en Out1 y Out2. `Follow Out` es **copia** de Out1, no
 inversión — ese error cambia el resultado por completo.
@@ -81,6 +88,7 @@ con nombre. Un sweep llenaría la lista enseguida — por eso no hay sweep.
 ## Los generadores NO tienen reloj
 
 > *"Die Spooky2 Generatoren haben keine Uhr. Alle diese Scheduler Geschichten funktionieren nur mit
+> **Traducción:** "Los generadores Spooky2 no tienen reloj. Todos estos temas de scheduler sólo funcionan con conexión constante al PC."
 > ständiger Verbindung mit dem PC."*
 
 **El Terrain Protocol de 11 días NO es autónomo.** Sin PC hay que arrancar y avanzar cada preset a
@@ -95,6 +103,7 @@ El fallo más reportado del grupo. **No es del preset**: el chip USB del generad
 interferencia EMI del tubo de plasma.
 
 > *"zumeist der USB-Chip im Generator abstürzt"* · *"Das hat mit der Menge der Frequenzen nichts zu
+> **Traducción:** "casi siempre el chip USB del generador se cuelga."
 > tun."*
 
 **El indicador no es un LED rojo.** Si ves `000000` en Out2 con Out1 activo, el generador no se

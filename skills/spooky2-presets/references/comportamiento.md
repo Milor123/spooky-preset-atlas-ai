@@ -74,6 +74,7 @@ en **76–152 kHz**. Lento y menos preciso. Con el GX mide corriente y ángulo d
 **Y que una frecuencia esté en la base de datos no significa que esté en tu cuerpo:**
 
 > *"Das heißt aber nicht, dass diese Frequenz im Körper vorhanden wäre. Es werden die
+> **Traducción:** "Pero eso no significa que esa frecuencia estuviera presente en el cuerpo. Se cambian las propiedades, nada más."
 > Eigenschaften geändert, mehr nicht."*
 
 ## MW → Hz, y su límite honesto
@@ -86,6 +87,7 @@ de diferencia**, dentro del alcance de los generadores.
 **Y el límite conceptual, dicho por el autor:**
 
 > *"für alle Vorgänge, bei denen die chemische Substanz für eine Reaktion vorliegen muss,
+> **Traducción:** "Para todos los procesos en los que la sustancia química tiene que estar presente para una reacción, las frecuencias no funcionan."
 > funktionieren die Frequenzen nicht."*
 
 Para cualquier proceso donde la sustancia deba estar físicamente presente, la frecuencia no
@@ -94,6 +96,7 @@ sirve.
 ## El método no diagnostica ni cura
 
 > *"Alles was der Resonanzfrequenz entspricht wird **gekillt, egal ob gesund oder krank**"*
+> **Traducción:** "Todo lo que corresponde a la frecuencia de resonancia se mata, sea sano o enfermo."
 > — **afirmación de autor, NO VERIFICABLE.** No la presentes como hecho.
 
 ## Falsas alarmas frecuentes

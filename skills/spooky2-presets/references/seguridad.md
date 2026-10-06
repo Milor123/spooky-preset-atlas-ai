@@ -17,6 +17,7 @@ Varios pads TENS en distintos generadores quedan conectados **indirectamente por
 y por el cuerpo circulan corrientes de ecualización (*Ausgleichströme*).
 
 > *"eine Betriebsart die auch vom Hersteller nicht gestattet ist"*
+> **Traducción:** "un modo de funcionamiento que tampoco permite el fabricante."
 
 **Contact + Laser simultáneos sí se puede**, con programas distintos.
 
@@ -25,6 +26,7 @@ y por el cuerpo circulan corrientes de ecualización (*Ausgleichströme*).
 **Offset 0 en Contact. Siempre.**
 
 > *"Offset ist Gleichspannung und kann bei Contact zu Verbrennungen führen."*
+> **Traducción:** "El offset es tensión continua y puede producir quemaduras en Contact."
 
 El offset no es un ajuste de polaridad inocuo: es DC. Aplica cada vez que se cambia un shell de
 Remote a Contact sin revisarlo.
@@ -39,6 +41,7 @@ Con Boost, para obtener −20…0 V en BN y 0…20 V en MN hay que poner **Out2 
 ## 3. Polarizar con pads TENS quema
 
 > *"Vorsicht dabei aber mit TENS-Pads. Da kann man sich recht schnell auch Verbrennungen
+> **Traducción:** "Pero cuidado con los pads TENS: te dan quemaduras con bastante rapidez."
 > zuziehen."*
 
 ## 4. El dolor es el único indicador, y llega tarde
@@ -51,6 +54,7 @@ y para entonces ya es tarde.
 ## 5. Cuatro pads: imposible
 
 > *"Die Ausgänge sind nicht galvanisch getrennt, so können zwischen den Generatoren unerwünschte
+> **Traducción:** "Las salidas no están aisladas galvánicamente, así que entre los generadores pueden circular corrientes no deseadas."
 > Ströme fließen."*
 
 **No es una recomendación: es una limitación del hardware.** No hay galvano con estos generadores.
@@ -60,10 +64,12 @@ y para entonces ya es tarde.
 La riesgo no es la temperatura aislada sino la **acumulación de calor**.
 
 > *"Wichtig ist die Teile so aufzustellen, dass kein Hitzestau entsteht. Also nicht zudecken."*
+> **Traducción:** "Importante poner las partes de forma que no se acumule calor. No taparlos."
 
 ## 7. Nunca tapes el Laser al Boost
 
 > *"dann können sie kaputt gehen."* — es riesgo para el aparato, no para vos. Si se conecta:
+> **Traducción:** "se pueden romper."
 **siempre Out1.**
 
 ## 8. Los láseres, Scalar y Plasma no son a prueba de tensión
@@ -93,6 +99,7 @@ Umbrales TTL (`Vih ≥ 2 V` / `Vil ≤ 0,8 V`) y CMOS (`Vih ≥ 3,5 V` / `Vil �
 Si hay piezas metálicas adentro, los wires **jamás** deben tocarlas:
 
 > *"Das könnte durchaus ernste Konsequenzen (**Bersten der Röhre**, Zerstörung der Endstufe) haben."*
+> **Traducción:** "Eso puede tener consecuencias graves (reventar el tubo, destruir la etapa de salida)."
 
 **Reventar el tubo o destruir la etapa de salida. Abrirlo pierde el gas.**
 
@@ -101,6 +108,7 @@ Si hay piezas metálicas adentro, los wires **jamás** deben tocarlas:
 Hay fusibles accesibles desde fuera, y uno de 4 A escondido bajo el interruptor rojo.
 
 > *"Dabei aber bitte den Stecker ziehen."*
+> **Traducción:** "Pero desenchufá antes."
 
 ## 13. Nunca con el auto en marcha
 

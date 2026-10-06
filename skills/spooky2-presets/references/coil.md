@@ -17,6 +17,7 @@ atraviesa tejido; la corriente eléctrica no.
 Con bipolar, el polo alterna: da igual cómo se sostenga la bobina contra el cuerpo.
 
 > *"Es ist voellig egal, wie rum man die PEMF am Koerper haelt."* — Johannes D
+> **Traducción:** "Es completamente indiferente cómo pongas la PEMF sobre el cuerpo."
 
 **O sea: la instrucción "BN contra el cuerpo" no tiene efecto con ese shell.** No es una cuestión de
 orientación — una onda bipolar no puede sostener un polo fijo.
@@ -37,6 +38,7 @@ Preset Collections\Shell (Empty) Presets\Coil\
 Su forma de onda:
 
 > *"meine Lieblingswellenform polares asymmetrisches Rechteck"* — **rectángulo polar asimétrico**
+> **Traducción:** "mi waveform favorita: rectángulo polar asimétrico."
 
 Es el `MM_ModSquare` con +Spike y −Spike. En el shell doble **no apila BN sobre BN**, a propósito,
 para no tener que decidir qué bobina va en Ch1.
@@ -88,6 +90,7 @@ atípicos, y el máximo del corpus (5,6 GHz) son seis valores sueltos, no una ba
 ### Y lo que dice Johannes D que NO funciona
 
 > *"**Nur mit den MWs und DNA Programmen**, d.h. Frequenzen >1 MHz da bin ich nicht sicher."* [33190]
+> **Traducción:** "Sólo con los programas MW y DNA — o sea, frecuencias >1 MHz — no estoy seguro."
 
 > **"Peptide-Presets im Coil Modus funktionieren nicht."**
 
@@ -122,6 +125,7 @@ significa que la Coil sea el vehículo correcto para cada lista: significa que n
 Ante *"connective tissue, ¿PEMF o Cold Laser?"* [22530]:
 
 > *"Hat man ein bestimmtes problematisches Areal wuerde ich eher zu PEMF neigen, aber jedenfalls
+> **Traducción:** "Si tenés un área problemática puntual, me inclino más por PEMF, pero de todos modos corré la paleta por Remote y PEMF20-30 min diarios sobre esa zona."
 > die ganze Palette via Remote parallel dazu laufen lassen und **jeden Tag mit PEMF 20-30 min**
 > auf besagte Stelle"*
 
