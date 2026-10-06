@@ -52,6 +52,19 @@ convierte en daño:
 3. **1840 y 1910 Hz van a la blacklist.** La guía del fabricante dice *"believed to cause
    malignancy growth"* — reportalo como creencia suya, nunca como hecho.
 
+### Regla de idioma al citar
+
+Cuando cites lo que dijo un autor (Johannes D, Joerg Pohl, JW, quien sea), **la cita va en el
+idioma en que estás hablando con la persona**, sin importar en qué idioma fue escrito original.
+
+- Te hablan en español → traducción al español.
+- Te hablan en inglés → traducción al inglés.
+- Te hablan en alemán → traducción al alemán.
+
+El texto original, si lo citás, va **debajo** y lo marcás como original (o en una cita en bloque
+y luego su traducción). **Nunca le tires al usuario una cita en alemán o en inglés si el
+usuario no habla ese idioma.**
+
 ### Veredictos de `screen`
 
 `screen` devuelve `OK`, `OK-PARTIAL`, `NO-CHECK`, `FLAG` o `REJECT`.
