@@ -92,7 +92,10 @@ atípicos, y el máximo del corpus (5,6 GHz) son seis valores sueltos, no una ba
 > *"**Nur mit den MWs und DNA Programmen**, d.h. Frequenzen >1 MHz da bin ich nicht sicher."* [33190]
 > **Traducción:** "Sólo con los programas MW y DNA — o sea, frecuencias >1 MHz — no estoy seguro."
 
-> **"Peptide-Presets im Coil Modus funktionieren nicht."**
+> **"Peptide-Presets im Coil Modus funktionieren nicht."** [45173]
+> **Traducción:** "Los presets de péptidos no funcionan en modo Coil." — 
+> es análisis de **JD** sobre la waveform senoidal del shell deJW, no una advertencia
+> textual de JW.
 
 Los programas DNA/MW en MHz son el grupo más raro del catálogo Coil. **No los pases a Coil.**
 
